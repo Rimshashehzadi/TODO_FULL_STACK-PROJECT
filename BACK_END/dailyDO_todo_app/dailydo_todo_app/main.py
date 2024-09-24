@@ -22,17 +22,17 @@ engine = create_engine(connection_string ,connect_args={"sslmode": "require"},po
 
 SQLModel.metadata.create_all(engine)
 
-todo1 : Todo = Todo(content='first task')
-todo2 : Todo = Todo(content='second task')
+# todo1 : Todo = Todo(content='first task')
+# todo2 : Todo = Todo(content='second task')
 
-session = Session(engine)
+# session = Session(engine)
 
-session.add(todo1)
-session.add(todo2)
-print("f' Before commit {todo1}")
-session.commit()  
-print("f' After commit {todo1}")
-session.close()
+# session.add(todo1)
+# session.add(todo2)
+# print("f' Before commit {todo1}")
+# session.commit()  
+# print("f' After commit {todo1}")
+# session.close()
 
 
 app = FastAPI() #create instance(class)
