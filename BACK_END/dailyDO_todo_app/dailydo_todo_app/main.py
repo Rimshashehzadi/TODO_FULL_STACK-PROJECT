@@ -76,15 +76,16 @@ def read_todos(session: Annotated[Session, Depends(get_session)]):
 @app.get('/todos/{id}',response_model=Todo)
 async def get_single_todo(id:int,session:Annotated[Session,Depends(get_session)]):
      todo = session.exec(select(Todo).where(Todo.id==id)).first()
-     if todo:
-          todo.id = todo.id
-          todo.is_completed = todo.is_completed
-          session.add(todo)
-        #   session.commit()
-          session.refresh(todo)
-          return todo
-     else:
-          raise HTTPException (status_code=404,detail= "id not found")
+     return todo
+    #  if todo:
+    #       todo.id = todo.id
+    #     #   todo.is_completed = todo.is_completed
+    #     #   session.add(todo)
+    #     #   session.commit()
+    #       session.refresh(todo)
+    # return todo
+    #  else:
+    #       raise HTTPException (status_code=404,detail= "id not found")
 @app.put('/todos/{id}')
 async def edit_todo(todo:Todo,session:Annotated[Session , Depends(get_session)]):
      existing_todo = session.exec(select(Todo).where(Todo.id == id)).first() 
