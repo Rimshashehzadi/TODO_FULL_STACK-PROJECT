@@ -46,7 +46,7 @@ async def lifespan(app: FastAPI)-> AsyncGenerator[None, None]:
     create_db_and_tables()
     yield
 
-app = FastAPI(lifespan=lifespan, title = "dailydo_todo_app", version = "0.1") #create instance(class)
+app = FastAPI(lifespan=lifespan, title = "dailydo_todo_app", version = "0.1") #create (class)
 
 
 #roots function that's call session on every API call
